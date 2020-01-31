@@ -1,4 +1,5 @@
 import React from 'react';
+import { inspect } from 'util';
 import styles from './ConsoleWidget.module.scss';
 
 const isError = e =>
@@ -19,7 +20,7 @@ const ConsoleWidget = ({ data, className }) => (
           <div className={styles.console} key={index}>
             <div className={styles.text}>
               {typeof text === 'object' && !isError(text) ? (
-                JSON.stringify(text, null, 2)
+                inspect(text)
               ) : (
                 <Text text={text} />
               )}

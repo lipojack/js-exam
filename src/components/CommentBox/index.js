@@ -8,11 +8,11 @@ import { RfRate, RfTextArea, CheckTagGroup } from 'components/RfInput';
 // import CheckboxGroup from 'antd/lib/checkbox/Group';
 
 let optionsList = [
-  { id: 1, name: 'Good Commuicator' },
-  { id: 2, name: 'Poor Communicator' },
-  { id: 3, name: 'Lack of Confidence' },
-  { id: 4, name: 'Unnecessarily Confident' },
-  { id: 5, name: 'Lack of Interaction' },
+  { id: 1, name: 'Good Commuicator', analysis: true },
+  { id: 2, name: 'Poor Communicator', analysis: false },
+  { id: 3, name: 'Lack of Confidence', analysis: false },
+  { id: 4, name: 'Unnecessarily Confident', analysis: false },
+  { id: 5, name: 'Lack of Interaction', analysis: false },
 ];
 
 const validate = values => {

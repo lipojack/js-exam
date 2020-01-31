@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { Card, Avatar, Tag, Icon } from 'antd';
 import { SpringGrid, measureItems, makeResponsive } from 'react-stonecutter';
+import { formatTime } from 'utils/format';
 
 import avatarIcon1 from 'asset/image/avatar1.png';
 import avatarIcon2 from 'asset/image/avatar2.png';
@@ -78,7 +79,7 @@ const RoomList = ({ rooms = [], signedOn, hostings, triggerDelRoom }) => {
                 <Meta
                   avatar={<Avatar src={AVATAR_LIST[avatarIndex]} />}
                   title={room.subjectId}
-                  description={room.createTime}
+                  description={formatTime(room.createTime)}
                 />
               </Card>
             </Link>

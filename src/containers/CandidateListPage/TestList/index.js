@@ -3,16 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteTestAction } from 'redux/test/actions';
+import { formatTime } from 'utils/format';
 
 import { List, Avatar, Icon, Modal } from 'antd';
 import style from './TestList.module.scss';
-
-function getDateTime(string) {
-  const T = new Date(string);
-  return `${T.getMonth() + 1}-
-    ${T.getDate()}-${T.getFullYear()} ${T.getHours()}:
-    ${T.getMinutes()}:${T.getSeconds()}`;
-}
 
 class TestList extends React.Component {
   state = {
@@ -73,6 +67,11 @@ class TestList extends React.Component {
                 </Link>,
               ]}
             >
+              <List.Item.Meta
+                avatar={<Avatar icon="code" className={style.avatar} />}
+                title={item.subjectId}
+                description={formatTime(item.timeBegin)}
+              />
               {item && item.tags && item.tags[0] === localStorage.username && (
                 <button
                   type="button"
@@ -82,11 +81,6 @@ class TestList extends React.Component {
                   <Icon type="delete" theme="twoTone" twoToneColor="#f00" />
                 </button>
               )}
-              <List.Item.Meta
-                avatar={<Avatar icon="code" className={style.avatar} />}
-                title={item.subjectId}
-                description={getDateTime(item.timeBegin)}
-              />
             </List.Item>
           )}
         />

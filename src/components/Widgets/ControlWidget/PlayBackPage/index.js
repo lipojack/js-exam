@@ -3,14 +3,10 @@ import PropTypes from 'prop-types';
 import PageControlBar from 'components/PageControlBar';
 import RecordSelector from 'components/Selectors/RecordSelector';
 import { Button, Icon, Input } from 'antd';
+import { formatTime } from 'utils/format';
 import styles from './ControlWidget.module.scss';
 
 const InputGroup = Input.Group;
-
-function getDateOutput(dateTime) {
-  const date = new Date(dateTime);
-  return date.toLocaleString();
-}
 
 const ControlWidget = ({
   recordIndex,
@@ -25,7 +21,7 @@ const ControlWidget = ({
     <div className={styles.info}>
       <span className={styles.icon} id={styles.date}>
         <Icon className={styles.icon} type="calendar" />
-        {getDateOutput(testDate)}
+        {formatTime(testDate)}
       </span>
       <span className={styles.icon} id={styles.name}>
         <Icon className={styles.icon} type="user" />

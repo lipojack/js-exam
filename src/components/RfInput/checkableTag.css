@@ -1,0 +1,6 @@
+.my-check-tag.ant-tag-checkable:not(.ant-tag-checkable-checked):hover {
+    color: #f4646b;
+}
+.my-check-tag.ant-tag-checkable:not(.ant-tag-checkable-checked):active {
+    background: #d9363e;
+}

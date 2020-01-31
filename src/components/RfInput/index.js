@@ -1,11 +1,11 @@
 import React from 'react';
 import { Input, Rate, Icon, Tooltip, Tag, Row, Col } from 'antd';
 import { rateTips } from './constants';
+import './checkableTag.css';
 
 const { TextArea } = Input;
 const { CheckableTag } = Tag;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
-
 const RfInput = ({ input, ...custom }) => <Input {...input} {...custom} />;
 
 const RfTextArea = ({ input, label, meta: { touched, error } }) => (
@@ -40,6 +40,7 @@ class CheckTagGroup extends React.Component {
         <span className="checkTag" key={index}>
           <label>
             <CheckableTag
+              className={!option.analysis && 'my-check-tag'}
               checked={input.value.indexOf(option.name) !== -1}
               value={option.name}
               onChange={checked => {
@@ -51,7 +52,19 @@ class CheckTagGroup extends React.Component {
                 }
                 return input.onChange(newValue);
               }}
-              style={{ border: '1px solid' }}
+              style={
+                !option.analysis && input.value.indexOf(option.name) !== -1
+                  ? {
+                      border: '1px solid',
+                      marginBottom: '8px',
+                      color: '#fff',
+                      background: '#ff4d4f',
+                    }
+                  : {
+                      border: '1px solid',
+                      marginBottom: '8px',
+                    }
+              }
             >
               {option.name}
             </CheckableTag>
